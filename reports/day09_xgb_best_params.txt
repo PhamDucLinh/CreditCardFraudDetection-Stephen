@@ -1,0 +1,6 @@
+SMOTE-grid best params: {'learning_rate': 0.1, 'max_depth': 4, 'n_estimators': 200, 'scale_pos_weight': 300}
+SMOTE-grid best F1 CV: 0.9943
+SMOTE-grid test F1 (Class 1): 0.1901
+Final strategy: upgrade_fix_no_smote
+Final model params: {'n_estimators': 300, 'max_depth': 4, 'learning_rate': 0.05, 'scale_pos_weight': 1}
+Final test F1 (Class 1): 0.8541
