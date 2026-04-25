@@ -4,6 +4,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
+import joblib
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
@@ -16,6 +17,7 @@ warnings.filterwarnings('ignore')
 
 # Setup
 os.makedirs('reports', exist_ok=True)
+os.makedirs('src', exist_ok=True)
 plt.style.use('seaborn-v0_8-whitegrid')
 
 print("🚀 MODEL TRAINING STARTING...")
@@ -120,6 +122,20 @@ plt.title('Top 10 XGBoost Feature Importance')
 plt.savefig('reports/08_xgb_feature_importance.png', dpi=300, bbox_inches='tight')
 plt.close()
 print("✅ Chart 8: xgb_feature_importance.png")
+
+# ===== SAVE PRODUCTION RANDOM FOREST =====
+rf_artifact = {
+    'model': rf,
+    'scaler': scaler,
+    'feature_columns': X.columns.tolist(),
+    'threshold': 0.5,
+    'metrics': {
+        'f1': float(rf_f1),
+        'roc_auc': float(roc_auc_score(y_test, rf_prob))
+    }
+}
+joblib.dump(rf_artifact, 'src/best_rf_model.pkl')
+print("✅ Production model saved: src/best_rf_model.pkl")
 
 print("\n🎉 MODEL TRAINING COMPLETE!")
 print("📁 Outputs: model_comparison.csv + 2 charts")

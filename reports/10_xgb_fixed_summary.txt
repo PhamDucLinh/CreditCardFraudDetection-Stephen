@@ -1,0 +1,5 @@
+Precision: 0.0086
+Recall: 0.9592
+F1: 0.0171
+ROC-AUC: 0.9771
+Vs RF 0.827: RF still better

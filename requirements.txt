@@ -173,3 +173,4 @@ tzdata==2026.1
 unique-identifier-msgs==2.2.1
 visualization-msgs==4.2.4
 xgboost==2.1.1
+flask>=3.1.0

@@ -1,0 +1,6 @@
+BEST PARAMS: {'subsample': 1.0, 'scale_pos_weight': 577.8760162601626, 'n_estimators': 200, 'max_depth': 4, 'learning_rate': 0.1, 'colsample_bytree': 0.8}
+BEST CV F1: 0.9929
+Precision (Class 1): 0.0890
+Recall (Class 1): 0.8980
+F1 (Class 1): 0.1619
+ROC-AUC: 0.9832
