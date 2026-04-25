@@ -255,3 +255,53 @@ Classification report (final model):
 ### 6) Đánh giá
 - Random Forest đã sẵn sàng làm model production cho giai đoạn deploy API.
 - API hoạt động end-to-end với dữ liệu đầu vào JSON và trả về xác suất gian lận đúng format.
+
+## Day 12 - Final Packaging Round
+
+### 1) Mục tiêu ngày
+- Hoàn thiện tài liệu nộp cuối: hướng dẫn demo nhanh + checklist nộp Word/PDF.
+
+### 2) Đầu vào
+- Yêu cầu final round từ user:
+  - Thêm phần README: chạy demo bằng 2 lệnh
+  - Tạo `sample_request.json`
+  - Tạo checklist final submission
+
+### 3) Công việc thực hiện
+#### Bước 1: Cập nhật README
+- Thêm section `How To Run Demo In 2 Commands`.
+- Thêm ví dụ response và liên kết checklist nộp cuối.
+
+Đầu vào: `README.md` hiện tại  
+Đầu ra: `README.md` có hướng dẫn demo nhanh
+
+#### Bước 2: Tạo payload test mẫu
+- Tạo file `sample_request.json` chứa `features` mẫu để gửi trực tiếp vào API bằng `curl -d @sample_request.json`.
+
+Đầu vào: format payload API `/predict`  
+Đầu ra: `sample_request.json`
+
+#### Bước 3: Tạo checklist nộp cuối
+- Tạo file `reports/final_submission_checklist.md` với checklist:
+  - Code artifacts
+  - Report artifacts
+  - Nội dung Word
+  - PDF export
+  - Demo readiness
+  - Final package
+
+Đầu vào: bộ deliverables hiện có  
+Đầu ra: checklist sẵn dùng cho nộp bài
+
+### 4) Kết quả
+- README đã có hướng dẫn chạy demo chỉ với 2 lệnh.
+- Payload test API có sẵn qua `sample_request.json`.
+- Checklist nộp cuối Word/PDF đã tạo và sẵn sàng tích từng mục.
+- Đã xác nhận output demo thực tế:
+  - `POST /predict` -> `{"fraud_probability": 0.0, "prediction": 0, "risk_level": "LOW"}`
+  - `GET /health` -> `{"feature_count": 30, "model_path": "src/best_rf_model.pkl", "status": "Fraud Detection API v1.0 - Random Forest Champion"}`
+
+### 5) File tạo/chỉnh sửa
+- `README.md`
+- `sample_request.json`
+- `reports/final_submission_checklist.md`
